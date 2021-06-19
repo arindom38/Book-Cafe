@@ -9,6 +9,7 @@ const morgan = require('morgan')
 
 //import custom modules
 const  indexRouter = require('./routes/index')
+const auhtorsRouter = require('./routes/authors')
 
 //set up app strututre
 app.set('view engine','ejs')
@@ -32,6 +33,6 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 //routes (url,rountername)
 app.use('/',indexRouter)
-
+app.use('/authors',auhtorsRouter)
 //port listen
 app.listen(process.env.PORT || 3000) //process.env.PORT automatically get the port number from environemnt
