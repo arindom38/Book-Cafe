@@ -1,0 +1,34 @@
+{
+  "name": "book-cafe",
+  "version": "1.0.0",
+  "description": "A Simple Node project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "devStart": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arindom38/Book-Cafe.git"
+  },
+  "keywords": [
+    "Node",
+    "js",
+    "Express",
+    "MongoDB"
+  ],
+  "author": "Ujjal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arindom38/Book-Cafe/issues"
+  },
+  "homepage": "https://github.com/arindom38/Book-Cafe#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.14"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
