@@ -1,3 +1,7 @@
+//checcking form which production the app is running
+if(process.env.NODE_ENV !== 'Production'){
+    require('dotenv').config() // automatically load the .env file
+}
 const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
@@ -16,6 +20,15 @@ app.use(expressLayouts) //layout
 app.use(morgan('dev')) //log generator
 app.use(express.static('public')) //public resources
 
+//database connectioon
+const mongoose = require('mongoose')
+mongoose.connect(process.env.DB_URL, { //running app in development env need this
+    useNewUrlParser:true,
+    useUnifiedTopology: true
+})
+const db = mongoose.connection
+db.on('error',error => console.error(error))
+db.once('open', () => console.log('Connected to Mongoose'))
 
 //routes (url,rountername)
 app.use('/',indexRouter)
