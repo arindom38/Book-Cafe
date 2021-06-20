@@ -1,1 +1,11 @@
-all the author
+<h2>Search Authors</h2>
+<form action="/authors" method="GET">
+    <label for="name">Name</label>
+    <!-- searchToken.name comes when form is submitted means sarch token shows in input value -->
+    <input type="text" name="name" value="<%= searchToken.name %>">
+    <button type="submit">Search</button>
+</form>
+<br>
+<% authors.forEach(author =>{ %>
+    <div><%= author.name %></div>
+<%})%>
