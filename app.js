@@ -7,9 +7,10 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const morgan = require('morgan')
 
-//import custom modules
+//import custom routes
 const  indexRouter = require('./routes/index')
 const auhtorsRouter = require('./routes/authors')
+const booksRouter = require('./routes/books')
 
 //set up app strututre
 app.set('view engine','ejs')
@@ -35,5 +36,8 @@ db.once('open', () => console.log('Connected to Mongoose'))
 //routes (url,rountername)
 app.use('/',indexRouter) // routes to index.js + index.ejs
 app.use('/authors',auhtorsRouter) // routes to authors authors.js and its '/' routing view (/authors/index.ejs)
+app.use('/books',booksRouter) 
+
+
 //port listen
 app.listen(process.env.PORT || 3000) //process.env.PORT automatically get the port number from environemnt
