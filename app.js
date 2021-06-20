@@ -20,6 +20,7 @@ app.set('layout','layouts/layout')
 app.use(expressLayouts) //layout
 app.use(morgan('dev')) //log generator
 app.use(express.static('public')) //public resources
+app.use(express.urlencoded({extended:true}))
 
 //database connectioon
 const mongoose = require('mongoose')
@@ -32,7 +33,7 @@ db.on('error',error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))
 
 //routes (url,rountername)
-app.use('/',indexRouter)
-app.use('/authors',auhtorsRouter)
+app.use('/',indexRouter) // routes to index.js + index.ejs
+app.use('/authors',auhtorsRouter) // routes to authors authors.js and its '/' routing view (/authors/index.ejs)
 //port listen
 app.listen(process.env.PORT || 3000) //process.env.PORT automatically get the port number from environemnt
