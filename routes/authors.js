@@ -9,7 +9,7 @@ router.get('/',authorController.allAuthors)
 // URl = /authors/new ,method : post
 router.get('/new',authorController.newAuthor_get)
 
-//create new author
+//Search author
 // URl = /authors ,method : post
 router.post('/',authorController.newAuthor_post)
 
