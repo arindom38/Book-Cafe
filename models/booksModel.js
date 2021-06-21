@@ -10,11 +10,15 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    pubishDate: {
-        type: String,
+    publishDate: {
+        type: Date,
         required: true
     },
     createdDate: {
+        type: Date,
+        required: true
+    },
+    pageCount: {
         type: String,
         required: true
     },
@@ -22,7 +26,7 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    auhtod: {
+    auhtor: {
         type: mongoose.Schema.Types.ObjectId, // existing monggose model
         required: true,
         ref: 'Author' //referencing author model
