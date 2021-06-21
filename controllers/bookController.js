@@ -20,7 +20,13 @@ const newBook_get = async (req,res)=>{
 }
 
 const newBook_post = async (req,res)=>{
-    res.send('Create books')
+    const book = new Book({
+        title: req.body.title,
+        author: req.body.author,
+        publishDate: req.body.publishDate,
+        pageCount: req.body.pageCount,
+        description: req.body.description
+    })
 }
 
 module.exports = {
