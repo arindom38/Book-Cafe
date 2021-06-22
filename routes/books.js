@@ -4,16 +4,16 @@ const bookController = require('../controllers/bookController')
 const Book = require('../models/booksModel')
 
 //upload file handler
-const multer = require('multer')
-const path = require('path')
-const uploadPath = path.join('public',Book.coverImageBasepath)
-const imageMimeTypes = ['image/jpeg','image/png','image/gif']
-const upload = multer({
-    dest: uploadPath,
-    fileFilter: (req, file, callback) =>{
-        callback(null,imageMimeTypes.includes(file.mimetype))
-    }
-})
+// const multer = require('multer')
+// const path = require('path')
+// const uploadPath = path.join('public',Book.coverImageBasepath)
+// const imageMimeTypes = ['image/jpeg','image/png','image/gif']
+// const upload = multer({
+//     dest: uploadPath,
+//     fileFilter: (req, file, callback) =>{
+//         callback(null,imageMimeTypes.includes(file.mimetype))
+//     }
+// })
 
 //get all the books
 // URl = /books ,method : get
@@ -25,6 +25,6 @@ router.get('/new',bookController.newBook_get)
 
 //Create book
 // URl = /books ,method : post
-router.post('/',upload.single('cover'),bookController.newBook_post)
+router.post('/',bookController.newBook_post)
 
 module.exports = router
