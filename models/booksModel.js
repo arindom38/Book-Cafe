@@ -38,9 +38,11 @@ const bookSchema = new Schema({
 },{timestamps: true})
 
 
-bookSchema.virtual('coverImagePath').get(function() {
+//a virtual book model properties which point to the actual image path
+// avirtual property is that property which is created from existing property
+bookSchema.virtual('coverImagePath').get(function() { //for accesing the model data (this.) need function not arrow function
     if (this.coverImageName != null) {
-      return path.join('/', coverImageBasePath, this.coverImageName)
+      return path.join('/', coverImageBasepath, this.coverImageName)
     }
   })
 
