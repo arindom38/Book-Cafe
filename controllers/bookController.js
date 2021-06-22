@@ -5,7 +5,29 @@ const fs = require('fs')
 
 
 const allBook = async (req, res) => {
-    res.send('all books')
+    //custom query for mongoDB
+    let query = {}
+    if(req.query.title != null && req.query.title !== ''){
+        //regex used serach for both upper and lower case . i indicate case insensitive
+        //query.function(model_propname, req.quer.proper)
+        query.title = new RegExp(req.query.title,'i')
+    }
+    if(req.query.publishbefore != null && req.query.publishbefore != ''){
+        query.publishDate = {'$lte': req.query.publishbefore } // lte is <= operator for mongodb
+    }
+    if(req.query.publishafter != null && req.query.publishafter != ''){
+        query.publishDate  = {'$gte': req.query.publishafter }// gte is => operator mongodb
+    }
+    await Book.find(query) //pass the custom query
+        .then((result) => {
+            res.render('books/index',{
+                books: result,
+                searchToken: req.query
+            })
+        })
+        .catch(err => {
+            res.redirect('/')
+        })
 }
 
 const newBook_get = async (req, res) => {
