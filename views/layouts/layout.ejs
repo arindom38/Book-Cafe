@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FilePond is a JavaScript library that brings silky smooth drag n' drop file uploading with preview  -->
+    <!-- FilePond CDN -->
+    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+        rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css" type="text/css">
+    <!-- File encode : file will be encode as base64 json string -->
+    <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    <!-- Image preview : renders a downscaled preview for dropped images. -->
+    <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <!-- Image Resize: automatically calculates and adds resize information. -->
+    <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+    <!-- File pond : Script for fidlepond should be placed after end of all the plugin scripts-->
+    <script defer src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+    <script defer src="/javascripts/fileUpload.js"></script>
+    <!-- Defer: The script is executed when the page has finished parsing check here: https://www.w3schools.com/tags/att_script_defer.asp -->
+
     <title>Book Cafe</title>
 </head>
+
 <body>
-    <%- include('../partials/header.ejs') %> 
-    <%- include('../partials/errorMssg.ejs') %> 
-    <%- body %>
+    <%- include('../partials/header.ejs') %>
+        <%- include('../partials/errorMssg.ejs') %>
+            <%- body %>
 </body>
+
 </html>
