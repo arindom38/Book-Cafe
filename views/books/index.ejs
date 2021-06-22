@@ -1,8 +1,22 @@
 <h2>Search Books</h2>
 <form action="/books" method="GET">
-    <label for="name">Name</label>
-    <!-- searchToken.name comes when form is submitted means sarch token shows in input value -->
-    <input type="text" name="name" value="">
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" value="<%= searchToken.title %>">
+    </div>
+    <div>
+        <label for="publishbefore">PublishBefore</label>
+        <input type="date" name="publishbefore" value="<%= searchToken.publishbefore %>">
+    </div>
+    <div>
+        <label for="publishafter">PublishAfter</label>
+        <input type="date" name="publishafter" value="<%= searchToken.publishafter %>">
+    </div>
     <button type="submit">Search</button>
 </form>
 <br>
+<div>
+    <% books.forEach(book=>{ %>
+        <img height="150" width="100" src="<%= book.coverImagePath %>" alt="Cover_image">
+        <%})%>
+</div>
