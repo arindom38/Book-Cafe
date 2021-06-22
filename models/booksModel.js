@@ -1,7 +1,4 @@
 const mongoose = require('mongoose')
-const path = require('path')
-
-const coverImageBasepath = 'uploads/bookcovers'
 
 //creating schema
 const Schema = mongoose.Schema
@@ -26,7 +23,11 @@ const bookSchema = new Schema({
         type: Number,
         required: true
     },
-    coverImageName: {
+    coverImage: {
+        type: Buffer,
+        required: true
+    },
+    coverImageType: {
         type: String,
         required: true
     },
@@ -40,13 +41,11 @@ const bookSchema = new Schema({
 
 //a virtual book model properties which point to the actual image path
 // avirtual property is that property which is created from existing property
-bookSchema.virtual('coverImagePath').get(function() { //for accesing the model data (this.) need function not arrow function
-    if (this.coverImageName != null) {
-      return path.join('/', coverImageBasepath, this.coverImageName)
+bookSchema.virtual('coverImagePath').get(function() {
+    if (this.coverImage != null && this.coverImageType != null) {
+      return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`
     }
   })
 
   
 module.exports = mongoose.model('Book',bookSchema)
-//import the module as a name not as a object
-module.exports.coverImageBasepath  = coverImageBasepath 
