@@ -46,7 +46,13 @@ const  showAuthor_get = async (req,res)=>{
 }
 
 const  editAuthor_get = async (req,res)=>{
-    res.send('Edit Authors: '+req.params.id)
+   await Author.findById(req.params.id)
+    .then((result)=>{
+        res.render('authors/edit',{author:result})
+    })
+    .catch(err=>{
+        res.redirect('/authors')
+    })
 }
 
 const  updateAuthor_put = async (req,res)=>{
