@@ -79,11 +79,11 @@ const  dltAuthor_delete = async (req,res)=>{
     await Author.findById(req.params.id) //first the find the author
     .then((resultfind)=>{ //if author is found
          resultfind.remove() // then remove author
-            .then((resultrmv)=>{
+            .then((result)=>{
                 res.redirect('/authors') //when remove succes redirect to authors view page
             })
             .catch((err)=>{ // if remove not sucess keep in the same page
-                res.redirect(`/authors/${resultrmv.id}`)
+                res.redirect(`/authors/${resultfind.id}`) // result find need to use as the after removing result null
             })
     })
     .catch((err)=>{ //when author is not found
