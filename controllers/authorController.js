@@ -41,8 +41,28 @@ const newAuthor_post = async (req,res)=>{ //make the call back async will not bl
         })
 }
 
+const  showAuthor_get = async (req,res)=>{
+    res.send('View Authors: '+req.params.id)
+}
+
+const  editAuthor_get = async (req,res)=>{
+    res.send('Edit Authors: '+req.params.id)
+}
+
+const  updateAuthor_put = async (req,res)=>{
+    res.send('Update Authors: '+req.params.id)
+}
+
+const  dltAuthor_delete = async (req,res)=>{
+    res.send('Delete Authors: '+req.params.id)
+}
+
 module.exports = {
     allAuthors,
     newAuthor_get,
-    newAuthor_post
+    newAuthor_post,
+    showAuthor_get,
+    editAuthor_get,
+    updateAuthor_put,
+    dltAuthor_delete
 }
