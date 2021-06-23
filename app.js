@@ -6,6 +6,7 @@ const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const morgan = require('morgan')
+const methodOverride = require('method-override')
 
 //import custom routes
 const  indexRouter = require('./routes/index')
@@ -21,7 +22,8 @@ app.set('layout','layouts/layout')
 app.use(expressLayouts) //layout
 app.use(morgan('dev')) //log generator
 app.use(express.static('public')) //public resources
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true})) //used for req query string use in post method
+app.use(methodOverride('_method')) // override with POST having ?_method=DELETE or PUT
 
 //database connectioon
 const mongoose = require('mongoose')
