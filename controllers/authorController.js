@@ -30,8 +30,7 @@ const newAuthor_post = async (req,res)=>{ //make the call back async will not bl
     })
     author.save()
         .then((result)=>{
-            //res.redirect(`authors/${newAuthor:id}`)
-            res.redirect('authors')
+            res.redirect(`/authors/${result.id}`) //on save success redirect to the new author view page
         })
         .catch((err)=>{
             res.render('authors/new',{ //if errro in creating new author the user should see the error in the same page
@@ -55,12 +54,41 @@ const  editAuthor_get = async (req,res)=>{
     })
 }
 
+//When author is updated
 const  updateAuthor_put = async (req,res)=>{
-    res.send('Update Authors: '+req.params.id)
+    await Author.findById(req.params.id) //first the find the author
+        .then((resultfind)=>{ //if author is found
+            resultfind.name = req.body.name // update the name from the body
+             resultfind.save() // then save update
+                .then((resultsave)=>{
+                    res.redirect(`/authors/${resultsave.id}`) //when save succes redirect to author view page
+                })
+                .catch((err)=>{ // if save not sucess keep in the same page
+                    res.render('authors/edit',{
+                        author:resultsave,
+                        errorMssg: 'Error Updating Author' //show error mssg
+                    })
+                })
+        })
+        .catch((err)=>{ //when author is not found
+            res.redirect('/') //redirect to home page
+        })
 }
 
 const  dltAuthor_delete = async (req,res)=>{
-    res.send('Delete Authors: '+req.params.id)
+    await Author.findById(req.params.id) //first the find the author
+    .then((resultfind)=>{ //if author is found
+         resultfind.remove() // then remove author
+            .then((resultrmv)=>{
+                res.redirect('/authors') //when remove succes redirect to authors view page
+            })
+            .catch((err)=>{ // if remove not sucess keep in the same page
+                res.redirect(`/authors/${resultrmv.id}`)
+            })
+    })
+    .catch((err)=>{ //when author is not found
+        res.redirect('/') //redirect to home page
+    })
 }
 
 module.exports = {

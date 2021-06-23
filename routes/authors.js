@@ -14,7 +14,7 @@ router.get('/new',authorController.newAuthor_get)
 // URl = /authors ,method : post
 router.post('/',authorController.newAuthor_post)
 
-//Show author
+//Show/view author
 // URl = /authors/:id ,method : get
 router.get('/:id',authorController.showAuthor_get)
 
