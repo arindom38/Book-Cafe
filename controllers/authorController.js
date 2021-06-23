@@ -1,4 +1,5 @@
 const Author = require('../models/authorsModel')
+const Book = require('../models/booksModel')
 
 const allAuthors = async (req,res)=>{
     let searchToken = {}
@@ -41,7 +42,19 @@ const newAuthor_post = async (req,res)=>{ //make the call back async will not bl
 }
 
 const  showAuthor_get = async (req,res)=>{
-    res.send('View Authors: '+req.params.id)
+    try {
+        const author = await Author.findById(req.params.id)
+        await Book.find({author: req.params.id}).limit(6)
+        .then((result)=>{
+             res.render('authors/show',{
+                 booksByAuthor:result,
+                 author:author
+             })
+        })
+    } catch (error) {
+        res.redirect('/')
+    }
+
 }
 
 const  editAuthor_get = async (req,res)=>{
