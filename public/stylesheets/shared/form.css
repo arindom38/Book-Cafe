@@ -1,0 +1,73 @@
+:root{
+    --form-label-font-size: 1.25rem;
+    --form-input-border-color:black;
+    --form-input-backgorund-color: white;
+}
+
+.form-row{
+    display: flex;
+    margin-bottom: .5rem;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column; /*makte the dependent item top to other*/
+    margin-left: 2rem;
+    flex-grow: 1;/* items grow maximum with equal space between*/
+    flex-basis: 0; /*items grow from same point*/
+}
+
+.form-item:first-child{
+    margin-left: 0;
+}
+
+.form-item-no-grow{
+    flex-grow: 0;
+}
+
+.form-item > label{
+    font-size: var(--form-label-font-size);
+    margin-bottom: .25rem;
+    margin-left: .15rem;
+}
+
+.form-item input, .form-item select, .form-item textarea{
+    height: 2rem;
+    padding: .25rem .5rem;
+    border-radius: .5rem;
+    border: 1px solid var(--form-input-border-color);
+    background-color: var(--form-input-backgorund-color);
+    color: rgb(80, 79, 79);
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: 'Comic Neue';
+    outline: none;
+}
+
+.form-item textarea{
+    height: 100%;
+    resize: none;
+}
+
+.form-item select option{
+    background-color: skyblue;
+}
+
+.form-item input:focus, .form-item select:focus, .form-item textarea:focus{
+    border-color: skyblue;
+}
+
+.filepond--root{
+    font-family: 'Comic Neue';
+    margin-bottom: 0;
+}
+
+.filepond--panel-root{
+    background-color:  var(--form-input-backgorund-color);
+    border: 1px solid var(--form-input-border-color);
+}
+
+.filepond--drop-label{
+    color:skyblue;
+    font-size: inherit;
+}
