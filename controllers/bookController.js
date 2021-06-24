@@ -12,6 +12,13 @@ const allBook = async (req, res) => {
         //query.function(model_propname, req.quer.proper)
         query.title = new RegExp(req.query.title, 'i')
     }
+    if (req.query.author != null && req.query.author !== '') {
+        try {
+            query.author = await Author.find({name:new RegExp(req.query.author, 'i')}).exec()
+        } catch (error) {
+            console.log(error)
+        }
+    }
     if (req.query.publishbefore != null && req.query.publishbefore != '') {
         query.publishDate = { '$lte': req.query.publishbefore } // lte is <= operator for mongodb
     }
