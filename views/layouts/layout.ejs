@@ -10,7 +10,6 @@
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
         rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css" type="text/css">
     <!-- File encode : file will be encode as base64 json string -->
     <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
     <!-- Image preview : renders a downscaled preview for dropped images. -->
@@ -21,14 +20,19 @@
     <script defer src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
     <script defer src="/javascripts/fileUpload.js"></script>
     <!-- Defer: The script is executed when the page has finished parsing check here: https://www.w3schools.com/tags/att_script_defer.asp -->
-
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css">
     <title>Book Cafe</title>
 </head>
 
 <body>
-    <%- include('../partials/header.ejs') %>
-        <%- include('../partials/errorMssg.ejs') %>
-            <%- body %>
+    <div class="container">
+        <%- include('../partials/header.ejs') %>
+            <div class="inner-container">
+                <%- include('../partials/errorMssg.ejs') %>
+                    <%- body %>
+            </div>
+    </div>
+
 </body>
 
 </html>

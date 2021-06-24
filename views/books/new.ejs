@@ -1,7 +1,9 @@
-<h2>New Book</h2>
+<h2 class="page-header">New Book</h2>
 <!-- Multer adds a body object and a file or files object to the request object.  -->
 <form action="/books" method="POST">
-    <%- include('_book_fields') %> 
-    <a href="/books">Cancel</a>
-    <button type="submit">create</button>
+    <%- include('_book_fields') %>
+        <div class="btn-row">
+            <a class="btn btn-danger" href="/books">Cancel</a>
+            <button class="btn btn-primary" type="submit">create</button>
+        </div>
 </form>
