@@ -1,0 +1,39 @@
+/* Import the fonst css */
+@import url("shared/fonts.css");
+@import url("shared/variable.css");
+@import url("shared/header.css"); /*must maintain order to use the variables*/
+@import url("shared/button.css");
+:root {
+  font-family: "Comic Neue";
+  font-size: 20px;
+  color: var(--color-text-light);
+}
+
+/* Selector: add contenst for which this selector will be used */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body {
+  background: linear-gradient(
+    to left,
+    var(--color-backgorund-dark),
+    var(--color-backgorund-light)
+  );
+}
+
+.container {
+  max-width: 1300px;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+.inner-container {
+  margin: 0 2rem;
+}
+
+.page-header{
+    font-size: 1.5rem;
+    font-weight: 500;
+}

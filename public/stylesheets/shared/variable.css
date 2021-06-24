@@ -1,0 +1,8 @@
+:root {
+    --color-base-rgb: 234,243,248;
+    --color-alpha:1;
+    --color-bakcgorund-base: rgb(var(--color-base-rgb));
+    --color-backgorund-dark: rgb(189, 195, 199);
+    --color-backgorund-light: rgb(44, 62, 80);
+    --color-text-light: rgb(228, 232, 235);
+}
