@@ -47,7 +47,7 @@ const  showAuthor_get = async (req,res)=>{
         await Book.find({author: req.params.id}).limit(6)
         .then((result)=>{
              res.render('authors/show',{
-                 booksByAuthor:result,
+                 books:result,
                  author:author
              })
         })
