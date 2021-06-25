@@ -4,6 +4,9 @@
 @import url("shared/header.css"); /*must maintain order to use the variables*/
 @import url("shared/button.css");
 @import url("shared/form.css");
+@import url("shared/author.css");
+@import url("shared/books.css");
+@import url("shared/errormssg.css");
 
 :root {
   font-family: "Comic Neue";
