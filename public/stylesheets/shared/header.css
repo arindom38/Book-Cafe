@@ -4,10 +4,26 @@
     --nav-link-font-weight: 300;
 }
 .header-title{
-    color: var(--color-text-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
     text-decoration: none;
+    font-family: 'Train One';
     font-size: var(--nav-title-font-size);
     font-weight: var(--nav-title-font-weight);
+    letter-spacing: 3px;
+}
+
+.header-title #first{
+    color: rgb(236, 226, 87);
+    text-shadow:  2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
+}
+
+.header-title #last{
+    color: rgb(255, 51, 51);
+    text-shadow:  2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
 }
 
 .header-nav{

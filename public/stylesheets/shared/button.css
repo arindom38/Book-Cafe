@@ -4,7 +4,7 @@
     --color-btn-primary-text: rgb(99, 94, 94);
     --color-btn-primary-background: rgb(var(--color-base-rgb));
     --color-btn-danger-text: whitesmoke;
-    --color-btn-danger-background: rgb(184, 93, 93);
+    --color-btn-danger-background: rgb(240, 63, 63);
     --color-btn-primary-background-hover: rgb(var(--color-base-rgb),.8);
     --color-btn-danger-background-hover: rgba(168, 91, 91);
 }
