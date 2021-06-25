@@ -1,6 +1,6 @@
 :root{
     --book-cover-width:200px;
-    --book-cover-width-large: 300px;
+    --book-cover-width-large: 275px;
     --book-cover-aspect-ratio: 0.75;
 }
 
@@ -16,8 +16,8 @@
 
 .book-grid{
     display: grid;
-    grid-gap: 2rem;
-    justify-content: left ;
+    grid-gap: 1rem;
+    justify-content: center ;
     grid-template-columns: repeat(auto-fill,var(--book-cover-width)); /*fill up the grid columns maximum, if a row is overloaded , go next row*/
 
 }
