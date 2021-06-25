@@ -1,0 +1,11 @@
+.error-mssg{
+    font-weight: bold;
+    color: rgb(223, 57, 57);
+    display: felx;
+    font-style: italic;
+    letter-spacing: 3px;
+}
+
+.error-mssg::before{
+    content: "Error: ";
+}
