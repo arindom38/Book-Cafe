@@ -1,9 +1,13 @@
 <h2 class="page-header">Update Author</h2>
 <!-- in view need to put the actual URL not with the middle ware or route . here /authors means / in route but uri: /authors -->
 <form action="/authors/<%= author.id %>?_method=PUT" method="POST">
-    <!-- author.name model is passed in the view, this store the value of input field and send to the route on submit -->
-    <label for="name">Name: </label><input name="name" type="text" value="<%= author.name %>">
-    <div class="btn-row">
+    <div class="form-row">
+        <div class="form-item">
+            <!-- author.name model is passed in the view, this store the value of input field and send to the route on submit -->
+            <label for="name">Name: </label><input name="name" type="text" value="<%= author.name %>">
+        </div>
+    </div>
+    <div class="form-row form-row-end btn-row">
         <a class="btn btn-danger" href="/authors/<%= author.name %>">Cancel</a>
         <button class="btn btn-primary" type="submit">Update</button>
     </div>

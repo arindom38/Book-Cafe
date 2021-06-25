@@ -21,6 +21,10 @@
     margin-left: 0;
 }
 
+.form-row-end {
+    justify-content: flex-end;
+}
+
 .form-item-no-grow{
     flex-grow: 0;
 }
@@ -60,6 +64,7 @@
 .filepond--root{
     font-family: 'Comic Neue';
     margin-bottom: 0;
+    height: 100%;
 }
 
 .filepond--panel-root{

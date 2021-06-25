@@ -1,22 +1,28 @@
 <h2 class="page-header">Search Books</h2>
 <form action="/books" method="GET">
-    <div>
-        <label for="title">Title</label>
-        <input type="text" name="title" value="<%= searchToken.title %>">
+    <div class="form-row">
+        <div class="form-item">
+            <label for="title">Title</label>
+            <input type="text" name="title" value="<%= searchToken.title %>">
+        </div>
+        <div class="form-item">
+            <label for="author">Author</label>
+            <input type="text" name="author" value="<%= searchToken.author %>">
+        </div>
     </div>
-    <div>
-        <label for="author">Author</label>
-        <input type="text" name="author" value="<%= searchToken.author %>">
+    <div class="form-row">
+        <div class="form-item">
+            <label for="publishbefore">PublishBefore</label>
+            <input type="date" name="publishbefore" value="<%= searchToken.publishbefore %>">
+        </div>
+        <div class="form-item">
+            <label for="publishafter">PublishAfter</label>
+            <input type="date" name="publishafter" value="<%= searchToken.publishafter %>">
+        </div>
     </div>
-    <div>
-        <label for="publishbefore">PublishBefore</label>
-        <input type="date" name="publishbefore" value="<%= searchToken.publishbefore %>">
+    <div class="form-row form-row-end btn-row">
+        <button class="btn btn-primary" type="submit">Search</button>
     </div>
-    <div>
-        <label for="publishafter">PublishAfter</label>
-        <input type="date" name="publishafter" value="<%= searchToken.publishafter %>">
-    </div>
-    <button class="btn btn-primary" type="submit">Search</button>
 </form>
 <br>
 <div>
