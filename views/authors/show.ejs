@@ -5,13 +5,9 @@
     <a class="btn btn-primary" href="/authors/<%= author.id %>/edit ">Edit</a>
     <%- include('../partials/_deleteField',{url: `/authors/${author.id}`}) %>
 </div>
-<% if(booksByAuthor.length> 0) {%>
+<% if(books.length> 0) {%>
     <h3 class="page-header">Books by Author:</h3>
-    <% booksByAuthor.forEach(book=> { %>
-        <a href="/books/<%= book.id %> ">
-            <img height="150" width="100" src="<%= book.coverImagePath %>" alt="Cover_image">
-        </a>
-        <% }) %>
+        <%- include('../partials/bookGrid') %> 
             <% }else{ %>
                 <h3>Author has no book yet</h3>
                 <% } %>

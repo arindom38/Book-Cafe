@@ -13,17 +13,15 @@
 </form>
 <br>
 <% authors.forEach(author=>{ %>
-    <div class="form-row">
-        <div class="form-item">
+    <div class="author-row">
+        <div class="author-name">
             <%= author.name %>
         </div>
-        <div class="form-item">
-            <div class="btn-row form-row-end">
-                <a class="btn btn-primary" href="/authors/<%= author.id %>">View</a>
-                <a class="btn btn-primary" href="/authors/<%= author.id %>/edit">Edit</a>
-                <!-- for deleting data don't use <a> , google will delete all data , as google go thorough each <a> link  -->
-                <%- include('../partials/_deleteField',{url: `/authors/${author.id}`}) %>
-            </div>
-        </div>
+    </div>
+    <div class="btn-row">
+        <a class="btn btn-primary" href="/authors/<%= author.id %>">View</a>
+        <a class="btn btn-primary" href="/authors/<%= author.id %>/edit">Edit</a>
+        <!-- for deleting data don't use <a> , google will delete all data , as google go thorough each <a> link  -->
+        <%- include('../partials/_deleteField',{url: `/authors/${author.id}`}) %>
     </div>
     <%})%>
